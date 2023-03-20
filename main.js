@@ -27,9 +27,9 @@ async function init_func(){
 
 function one_render_elem(x){
     return `
-    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-1">
         <h3 class="uk-card-title">${x[0]}</h3>
-        <p>値段:${x[1]}円</p>
+        <p>値段:${x[1]}円　${x[2]==1 ? "明星大生限定メニュー":""}</p>
     </div>
     `;
 }
@@ -43,26 +43,37 @@ function render_elem(x){
     }, "");
 }
 
-function select_elem(max_price){
+function select_elem(max_price,Is_gakuwari){
     console.log(foods_prices);
     let A=[];
     while(
         A.map((e)=> parseInt(e[1], 10)).reduce(function(A, e){
             return A+e;
-        }, 0)<max_price
+        }, 0)+100<max_price
     ){
-        let I=Math.floor(Math.random()*foods_prices.length);
-        A.push(foods_prices[I]);
+        while(
+            A.map((e)=> parseInt(e[1], 10)).reduce(function(A, e){
+                return A+e;
+            }, 0)<max_price
+        ){
+            let I=Math.floor(Math.random()*foods_prices.length);
+            if(!Is_gakuwari){
+                if(foods_prices[I][2]=="1")
+                    continue;
+            }
+            A.push(foods_prices[I]);
+        }
+        A.pop();
     }
-    A.pop();
     return A;
 }
 
 function run_gacha(){
     let max_price=parseInt(document.getElementById("max_price").value,10);
     let render_HTML=document.getElementById("elems");
+    let Is_gakuwari=document.getElementById("Is_gakuwari").checked;
     
-    let data=select_elem(max_price);
+    let data=select_elem(max_price,Is_gakuwari);
     let A=render_elem(data);
     render_HTML.innerHTML=A;
 
@@ -70,7 +81,7 @@ function run_gacha(){
         data.map((e)=> parseInt(e[1], 10)).reduce(function(A, e){
             return A+e;
         }, 0)
-    }`;
+    }円`;
 }
 
 init_func();

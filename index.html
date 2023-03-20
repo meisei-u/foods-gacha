@@ -37,13 +37,18 @@
 <body class="background">
     <h1 class="my-text">明星学食ガチャ</h1>
     <div id="elems"></div>
-    <div id="sum_price" class="my-text"></div>
+    <h3 id="sum_price" class="my-text"></h3>
     <form uk-form-custom class="form-background">
         <p style="padding: 1em;">
             <p>
                 <button type="button" class="uk-button" onclick="run_gacha()">ガチャを回す</button>
             </p>
-            <div class="my-text">予算</div><input id="max_price" class="uk-input" type="text" value="1000">
+            <p>
+                <div class="my-text">予算</div><input id="max_price" class="uk-input" type="text" value="1000">
+            </p>
+            <p>
+                <label class="my-text">明星大生限定メニューを含む <input id="Is_gakuwari" class="uk-checkbox" type="checkbox" checked></label>
+            </p>
         </p>
     </form>
     <script src="main.js"></script>
