@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.10/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.10/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.10/dist/js/uikit-icons.min.js"></script>
+
+    <meta name="viewport" content="height=device-height,initial-scale=1.0">
+    
+    <title>明星学食ガチャ</title>
+    <link rel="icon" href="icon.png">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
+
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+
+    <meta property="og:url" content="" />
+ 
+    <meta property="og:type" content="website" />
+    
+    <meta property="og:title" content="明星学食ガチャ" />
+    
+    <meta property="og:description" content="The Gacha of MEISEI foods" />
+    
+    <meta property="og:site_name" content="明星学食ガチャ" />
+    
+    <meta property="og:image" content="" />
+
+    <meta name="twitter:card" content="summary" />
+
+
+</head>
+<body class="background">
+    <h1 class="my-text">明星学食ガチャ</h1>
+    <div id="elems"></div>
+    <div id="sum_price" class="my-text"></div>
+    <form uk-form-custom class="form-background">
+        <p style="padding: 1em;">
+            <p>
+                <button type="button" class="uk-button" onclick="run_gacha()">ガチャを回す</button>
+            </p>
+            <div class="my-text">予算</div><input id="max_price" class="uk-input" type="text" value="1000">
+        </p>
+    </form>
+    <script src="main.js"></script>
+</body>
+</html>
