@@ -49,7 +49,7 @@ function select_elem(max_price,Is_gakuwari){
     while(
         A.map((e)=> parseInt(e[1], 10)).reduce(function(A, e){
             return A+e;
-        }, 0)+100<max_price
+        }, 0)+40<max_price
     ){
         while(
             A.map((e)=> parseInt(e[1], 10)).reduce(function(A, e){
